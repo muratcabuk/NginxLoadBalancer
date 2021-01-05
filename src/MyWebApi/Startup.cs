@@ -26,16 +26,16 @@ namespace MyWebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.Configure<ForwardedHeadersOptions>(options =>
-            {
-                options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
-            });
+            // services.Configure<ForwardedHeadersOptions>(options =>
+            // {
+            //     options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseForwardedHeaders(); // Forwarded Headers Middleware can run after diagnostics and error handling, but it must be be run before calling UseHsts.
+           // app.UseForwardedHeaders(); // Forwarded Headers Middleware can run after diagnostics and error handling, but it must be be run before calling UseHsts.
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
