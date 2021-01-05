@@ -19,5 +19,17 @@ services:
   api:
     build: ./src
     ports:
-      - '5000'
+      - '8081'
     restart: always
+
+networks:
+  default: # buraya default yerine başka bir isim örneğin yukarıdaki gibi 
+           # kms-network deseydik yukarı network tanımlamaları ile ilgili açıklama satılarını açmalıyız.
+           # servislere kms-network diye tanımlama yapılmalıydı
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.1.0/24
+#          gateway: 192.168.1.1
+

@@ -13,5 +13,5 @@ RUN dotnet publish -c Release -o /out --no-restore
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS runtime
 WORKDIR /app
 COPY --from=build /out ./
-ENV ASPNETCORE_URLS http://*:5000
+ENV ASPNETCORE_URLS http://*:8081
 ENTRYPOINT ["dotnet", "MyWebApi.dll"]
